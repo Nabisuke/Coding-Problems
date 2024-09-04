@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
@@ -9,22 +9,21 @@ int main()
     {
         int x,y,d;
         cin>>x>>y>>d;
-        pair<int, int> pr = {x, y};
         pair<int, int> pr_1 = {0, 0};
         int count = 0;
 
-        while (pr.first != pr_1.first || pr.second != pr_1.second)
+        while (pr_1.first != x || pr_1.second != y)
         {
             count++;
 
             if (count % 2 != 0)
             {
-                int move_x = min(d, pr.first - pr_1.first);
+                int move_x = min(d, x - pr_1.first);
                 pr_1.first += move_x;
             }
             else
             {
-                int move_y = min(d, pr.second - pr_1.second);
+                int move_y = min(d, y - pr_1.second);
                 pr_1.second += move_y;
             }
         }
