@@ -9,22 +9,9 @@ int main()
     while (t--)
     {
         int n;
-        cin >> n;
-        
-        string s = "";
-        for (int i = 0; i < n; i++)
-        {
-            if (i % 2 == 0)
-            {
-                s += '0';
-            }
-            else
-            {
-                s += '1';
-            }
-        }
-        cout<<s<<endl;
-    }      
-    
+        cin >> n;       
+        string result = "1" + string(n - 1, '0');
+        cout << result << endl; 
+    }   
     return 0;
 }
