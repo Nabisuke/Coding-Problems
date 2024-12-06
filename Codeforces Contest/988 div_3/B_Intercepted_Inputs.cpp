@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#define ll long long
 using namespace std;
 int main()
 {
@@ -15,26 +16,28 @@ int main()
         {
             cin>>v[i];
         }
-        int nn = 0;
-        int m=0;
+        int val = n-2;
+        sort(v.begin(),v.end());
         bool flag = false;
-        while(!flag)
+        for (int i = 0; i < n; i++)
         {
-            for (int i = 0; i < n-1; i++)
+            int l = i; int r = n-1;           
+            ll mul = v[i];
+            while(l<=r)
             {
-                for (int j = i+1; j < n; j++)
+                int mid = (l+r)/2;
+                ll result = mul * v[mid];
+                if (result == val)
                 {
-                    if (v[i] * v[j] == n-2)
-                    {
-                        nn = v[i], m = v[j];
-                        flag = true;
-                        break;                 
-                    }
+                    flag = true;
+                    cout<<v[i]<<" "<<v[mid]<<"\n";
+                    break;
                 }
+                else if (result < val) l = mid+1;
+                else r = mid-1;
             }
+            if (flag) break;
         }
-        
-        cout<<nn<<" "<<m<<"\n";
 
     }
     
