@@ -9,28 +9,29 @@ int main()
     {
         int n; cin>>n;
         string s; cin>>s;
-        vector<int> v(26);
-        for(int i=0;i<n;i++)
+        map<char,int> mp;
+        bool flag = true;
+        for (int i = 0; i < n; i++)
         {
-            v[s[i]-'a']++;
+            if (mp.find(s[i]) == mp.end())
+            {
+                mp[s[i]] = i;
+            }
+            else
+            {
+                if ((i - mp[s[i]]) % 2 != 0)
+                {
+                    flag = false;
+                    break;                    
+                }
+                else
+                {
+                    mp[s[i]] = i;
+                }
+            }
         }
-        int odd = 0, even = 0;
-        for(int i=0;i<26;i++)
-        {
-            if(v[i]%2==0) even+=v[i];
-            else odd+=v[i];
-        }
-        if (n == 1) cout<<"YES"<<"\n";
-        else if (n % 2 == 0)
-        {
-            if (even > odd) cout<<"NO"<<"\n";
-            else cout<<"YES"<<"\n";
-        }
-        else
-        {
-            if (even >= odd) cout<<"YES"<<"\n";
-            else cout<<"NO"<<"\n";
-        }
+        if (flag) cout<<"YES\n";
+        else cout<<"NO\n";
     }
     
     return 0;
