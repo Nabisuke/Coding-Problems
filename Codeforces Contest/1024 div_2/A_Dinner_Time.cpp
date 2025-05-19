@@ -15,7 +15,7 @@ int main()
         if (val_1 == 0)
         {
             if (m == val*q) cout<<"YES"<<"\n";
-            else cout<<"NO"<< "\n";
+            else cout<<"NO"<<"\n";
         }
         else cout<<"YES"<<"\n";
     }
